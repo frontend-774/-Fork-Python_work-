@@ -8,6 +8,10 @@ def translate(w):
     w = w.lower()
     if w in data:
         return data[w]
+    elif w.title() in data:
+        return data[w.title()]
+    # elif w.upper() in data: 
+    #     return data[w.upper()]
     elif len(get_close_matches(w,data.keys()))>0:
         li = get_close_matches(w,data.keys(), n = 4, cutoff=0.6)
         print("Suggestions ")
